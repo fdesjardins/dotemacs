@@ -199,7 +199,7 @@
 (linum-mode t)
 (global-linum-mode t)
 (column-number-mode t)
-(hl-line-mode t)
+(global-hl-line-mode t)
 
 (setq tabbar-ruler-global-tabbar t)
 (setq tabber-ruler-global-ruler t)
