@@ -1,11 +1,11 @@
 (require 'cl)
 
 (when (>= emacs-major-version 24)
-	(require 'package)
-	(package-initialize)
-	(add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/"))
-	(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-	(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (defvar my-packages
@@ -17,7 +17,7 @@
     paredit
     yasnippet
     highlight-indentation
-		markdown-mode
+    markdown-mode
     ;; python
     elpy
     ;; webdev
@@ -29,18 +29,18 @@
     cider
     ;; themes
     zenburn-theme
-		solarized-theme))
+    solarized-theme))
 
 (defun my-packages-installed-p ()
-	(loop for p in my-packages
-				when (not (package-installed-p p)) do (return nil)
-				finally (return t)))
+  (loop for p in my-packages
+        when (not (package-installed-p p)) do (return nil)
+        finally (return t)))
 
 (unless (my-packages-installed-p)
-	(package-refresh-contents)
-	(dolist (p my-packages)
-		(when (not (package-installed-p p))
-			(package-install p))))
+  (package-refresh-contents)
+  (dolist (p my-packages)
+    (when (not (package-installed-p p))
+      (package-install p))))
 
 ;;--------------------------------------------------
 ;; - Custom
@@ -151,32 +151,32 @@
 ;; - Hooks
 
 (defun my-sws-hooks ()
-	(electric-indent-mode t)
-	(setq indent-tabs-mode nil)
-	(highlight-indentation-mode))
+  (electric-indent-mode t)
+  (setq indent-tabs-mode nil)
+  (highlight-indentation-mode))
 
 (add-hook 'elpy-mode-hook
- (lambda ()
-   (my-sws-hooks)
-   (setq python-indent 4)
-   (setq tab-width 4)))
+          (lambda ()
+            (my-sws-hooks)
+            (setq python-indent 4)
+            (setq tab-width 4)))
 
 (add-hook 'coffee-mode-hook
- (lambda ()
-	 (my-sws-hooks)
-   (setq coffee-tab-width 2)
-   (setq tab-width 2)))
+          (lambda ()
+            (my-sws-hooks)
+            (setq coffee-tab-width 2)
+            (setq tab-width 2)))
 
 (add-hook 'jade-mode-hook
- (lambda ()
-   (my-sws-hooks)
-   (setq tab-width 2)))
+          (lambda ()
+            (my-sws-hooks)
+            (setq tab-width 2)))
 
 (add-hook
  'stylus-mode-hook
  (lambda ()
-	 (my-sws-hooks)
-	 (setq tab-width 2)))
+   (my-sws-hooks)
+   (setq tab-width 2)))
 
 ;;--------------------------------------------------
 ;; - Modes
