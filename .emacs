@@ -57,7 +57,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+'(default ((t (:family "Inconsolata" :foundry "unknown" :slant normal :weight normal :height 110 :width normal)))))
 
 ;;--------------------------------------------------
 ;; - Themes
@@ -172,11 +172,10 @@
             (my-sws-hooks)
             (setq tab-width 2)))
 
-(add-hook
- 'stylus-mode-hook
- (lambda ()
-   (my-sws-hooks)
-   (setq tab-width 2)))
+(add-hook 'stylus-mode-hook
+          (lambda ()
+            (my-sws-hooks)
+            (setq tab-width 2)))
 
 ;;--------------------------------------------------
 ;; - Modes
@@ -213,7 +212,7 @@
 (define-key Buffer-menu-mode-map (kbd "RET") 'my-buffer-menu-1-window)
 (define-key Buffer-menu-mode-map [mouse-2] 'my-buffer-menu-1-window)
 
-(setq tramp-default-mode "ssh")
+;;(setq tramp-default-mode "ssh")
 
 ;;--------------------------------------------------
 ;; - Global Keybindings
@@ -278,5 +277,5 @@
 ;;--------------------------------------------------
 ;; - Work Specific
 
-(setenv "PATH" (concat "C:/Users/desjardins_forrest.ASD/.lein/bin/" ";" (getenv "PATH")))
-(add-to-list 'exec-path "C:/Users/desjardins_forrest.ASD/.lein/bin/")
+;; (setenv "PATH" (concat "C:/Users/desjardins_forrest.ASD/.lein/bin/" ";" (getenv "PATH")))
+;; (add-to-list 'exec-path "C:/Users/desjardins_forrest.ASD/.lein/bin/")
